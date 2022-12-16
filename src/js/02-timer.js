@@ -8,14 +8,21 @@ const refs = {
   timeMinutes: document.querySelector('.value[data-minutes]'),
   timeSecond: document.querySelector('.value[data-seconds]'),
   timeFace: document.querySelector('.timer'),
-  timeFaceItem: document.querySelector('.field'),
+  timeFaceItems: document.querySelectorAll('.field'),
 };
 
 refs.btnStart.addEventListener('click', onBtnStartClick);
 refs.btnStart.setAttribute('disabled', 'disabled');
 refs.timeFace.style.display = 'flex';
 refs.timeFace.style.marginTop = '25px';
-refs.timeFace.style.justifyContent = 'space-around';
+refs.timeFace.style.gap = '15px';
+const newArray = refs.timeFaceItems;
+console.log(refs.timeFaceItems);
+for (let i = 0; i < newArray.length; i += 1) {
+  newArray[i].style.display = 'flex';
+  newArray[i].style.flexDirection = 'column';
+  newArray[i].style.alignItems = 'center';
+}
 
 const options = {
   enableTime: true,
