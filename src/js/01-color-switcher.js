@@ -22,3 +22,12 @@ function onBtnStartClick() {
   refs.buttonStart.setAttribute('disabled', 'disabled');
   refs.buttonStop.removeAttribute('disabled', 'disabled');
 }
+
+function onBtnStopClick() {
+  timer.stop();
+  refs.buttonStart.removeAttribute('disabled', 'disabled');
+  refs.buttonStop.setAttribute('disabled', 'disabled');
+}
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}

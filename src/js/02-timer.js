@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import Notiflix from 'notiflix';
 const refs = {
   btnStart: document.querySelector('button[data-start]'),
   timeDays: document.querySelector('.value[data-days]'),
@@ -7,15 +8,15 @@ const refs = {
   timeMinutes: document.querySelector('.value[data-minutes]'),
   timeSecond: document.querySelector('.value[data-seconds]'),
   timeFace: document.querySelector('.timer'),
-  timeFaceItem: document.querySelectorAll('.field'),
+  timeFaceItem: document.querySelector('.field'),
 };
 
 refs.btnStart.addEventListener('click', onBtnStartClick);
 refs.btnStart.setAttribute('disabled', 'disabled');
 refs.timeFace.style.display = 'flex';
-refs.timeFaceItem.style.display = 'flex';
-refs.timeFaceItem.style.flexDirection = 'column';
-refs.timeFaceItem.style.alignItems = 'center';
+refs.timeFace.style.marginTop = '25px';
+refs.timeFace.style.justifyContent = 'space-around';
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -23,8 +24,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < options.defaultDate) {
-      window.alert('Please choose a date in the future');
-
+      Notiflix.Notify.warning('Please choose a date in the future');
       refs.btnStart.setAttribute('disabled', 'disabled');
     } else {
       refs.btnStart.removeAttribute('disabled', 'disabled');
