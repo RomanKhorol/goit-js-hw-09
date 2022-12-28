@@ -7,10 +7,10 @@ const refs = {
 };
 
 refs.form.addEventListener('submit', onFormSubmit);
-
+delay = Number(refs.inputDelay.value);
 function onFormSubmit(e) {
   e.preventDefault();
-  delay = Number(refs.inputDelay.value);
+
   position = 0;
   for (let i = 0; i <= refs.inputAmount.value - 1; i += 1) {
     position += 1;
