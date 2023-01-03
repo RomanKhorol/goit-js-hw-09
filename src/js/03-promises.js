@@ -24,7 +24,8 @@ function onFormSubmit(e) {
         Notiflix.Notify.warning(
           `❌ Rejected promise ${position} in ${delay}ms`
         );
-      });
+      })
+      .finally(() => refs.form.reset());
     delay += Number(refs.inputStep.value);
   }
   function createPromise(position, delay) {
